@@ -94,13 +94,13 @@ function leerLocalStorage() {
     cafesLS = obtenerCafesLocalStorage();
 
     cafesLS.forEach(function(cafe) {
-        cosnt row = document.createElement('tr');
+        const row = document.createElement('tr');
         row.innerHTML = `
             <td>
                 <img src="${cafe.imagen}" width=100>
             </td>
             <td>${cafe.titulo}</td>
-            <td>$cafe.precio}</td>
+            <td>${cafe.precio}</td>
             <td>
                 <A href="#" class="borrar-cafe" data-id="${cafe.id}">X</a>
             </td>
@@ -111,17 +111,17 @@ function leerLocalStorage() {
 }
 
 function eliminarCafeLocalStorage(cafe) {
-    let cafeLS;
+    let cafesLS;
 
-    cafeLS = obtenerCafesLocalStorage();
+    cafesLS = obtenerCafesLocalStorage();
 
-    cafeLS.forEach(function(cafesLS, index){
+    cafesLS.forEach(function(cafesLS, index){
         if(cafesLS.id === cafe) {
             cafesLS.splice(index, 1)
         }
     });
 
-    localStorage.setItem('cafes', JSON.stringify(cafeLS));
+    localStorage.setItem('cafes', JSON.stringify(cafesLS));
 }
 
 function vaciarLocalStorage() {
